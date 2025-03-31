@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sayang ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #ffd8d8;
+            --accent: #ff9ef3;
+            --text: #333333;
+            --background: #fff9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .login-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 107, 107, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--secondary);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .login-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #ff5252;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.5s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title i {
+            margin-right: 0.5rem;
+        }
+
+        .message-box {
+            margin-top: 2rem;
+        }
+
+        .message-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--secondary);
+            border-radius: 0.5rem;
+            resize: none;
+            margin-bottom: 1rem;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .message-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #ff5252;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .memory {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .memory:hover {
+            transform: scale(1.05);
+        }
+
+        .memory img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .memory-info {
+            padding: 1rem;
+        }
+
+        .memory-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .memory-description {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .wishes-container {
+            margin: 2rem 0;
+        }
+
+        .wish {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wish::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+
+        .wish-text {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .wish-author {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid var(--secondary);
+        }
+
+        .footer p {
+            color: var(--text);
+        }
+
+        .heart {
+            color: var(--primary);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .countdown-item {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .countdown-value {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Floating Hearts Animation */
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .heart-float {
+            position: absolute;
+            opacity: 0.6;
+            animation: floatUp 15s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-50vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+            }
+
+            .photo-frame {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .loading div {
+            display: inline-block;
+            position: absolute;
+            left: 8px;
+            width: 16px;
+            background: var(--primary);
+            animation: loading 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+        }
+
+        .loading div:nth-child(1) {
+            left: 8px;
+            animation-delay: -0.24s;
+        }
+
+        .loading div:nth-child(2) {
+            left: 32px;
+            animation-delay: -0.12s;
+        }
+
+        .loading div:nth-child(3) {
+            left: 56px;
+            animation-delay: 0;
+        }
+
+        @keyframes loading {
+            0% {
+                top: 8px;
+                height: 64px;
+            }
+            50%, 100% {
+                top: 24px;
+                height: 32px;
+            }
+        }
+
+        /* Music player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .music-player i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: fadeIn 0.5s;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom wishes display */
+        .custom-wishes {
+            margin-top: 2rem;
+        }
+
+        .custom-wish {
+            background-color: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s;
+        }
+
+        .custom-wish::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--accent);
+        }
+
+        /* Sender input styles */
+        .sender-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--secondary);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-family: inherit;
+        }
+
+        .sender-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .wish-date {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Login Container -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-box animate__animated animate__fadeIn">
+            <h2>Masuk untuk Reina ❤️</h2>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Masukkan username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Masukkan password">
+            </div>
+            <button class="login-btn" id="loginBtn">Masuk</button>
+            <p id="loginError" style="color: var(--primary); margin-top: 1rem; display: none;">Username atau password salah!</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="mainContent" style="display: none;">
+        <div class="hearts-container" id="heartsContainer"></div>
+        
+        <div class="header">
+            <div class="photo-frame">
+                <img src="reina.jpg" alt="Reina">
+            </div>
+            <h1 class="animate__animated animate__fadeInDown">Happy Birthday Bebeyy!</h1>
+            <p class="animate__animated animate__fadeIn">From Hanzzzzz:p ❤️</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="daysLeft">0</div>
+                    <div class="countdown-label">Hari</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hoursLeft">0</div>
+                    <div class="countdown-label">Jam</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutesLeft">0</div>
+                    <div class="countdown-label">Menit</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="secondsLeft">0</div>
+                    <div class="countdown-label">Detik</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card animate__animated animate__fadeIn">
+            <h2 class="card-title"><i class="fas fa-heart"></i>For u</h2>
+            <p>Happy Birthday sayangku,aku selalu sayang sama kamu,aku tak tahu lagi harus mengungkapkan rasa sayangku padamu itu bagaimana lagi.</p>
+            <p>doa terbaik pastinya untukmu sayangku,aku harapp kamu selalu bahagia,aku selalu disini untukkmu sayang,</p>
+            <p>Aku sangat bersyukur bisa bersamamu hingga saat ini.</p>
+            <p>Selamat ulang tahun, my universe ❤️</p>
+        </div>
+
+        <div class="card animate__animated animate__fadeIn">
+            <h2 class="card-title"><i class="fas fa-pencil-alt"></i> Tulis Harapanmu</h2>
+            <p>Tulis harapan atau pesan di hari spesialnya:</p>
+            <div class="message-box">
+                <input type="text" id="senderInput" class="sender-input" placeholder="Nama kamu..." required>
+                <textarea class="message-input" id="messageInput" placeholder="Tulis harapanmu di sini..." rows="5" required></textarea>
+                <button class="submit-btn" id="submitWishBtn">Kirim Harapan</button>
+            </div>
+            <div class="custom-wishes" id="customWishes"></div>
+        </div>
+
+        <div class="card animate__animated animate__fadeIn">
+            <h2 class="card-title"><i class="fas fa-birthday-cake"></i> Surprise!</h2>
+            <p>Klik tombol di bawah untuk kejutan spesial!</p>
+            <button class="submit-btn" id="surpriseBtn" style="margin-top: 1rem;">Lihat Kejutan</button>
+        </div>
+
+        <div class="footer">
+            <p>Dibuat dengan <span class="heart">❤️</span> khusus untuk Reina</p>
+            <p>Happy Birthday, Reina!</p>
+        </div>
+    </div>
+
+    <!-- Surprise Modal -->
+    <div class="modal" id="surpriseModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Surprise!</h2>
+            <div style="display: flex; justify-content: center;">
+                <img src="/api/placeholder/400/320" alt="Surprise Gift" style="width: 100%; max-width: 300px; border-radius: 0.5rem;">
+            </div>
+            <p style="text-align: center; margin-top: 1rem;">Ada hadiah spesial untukmu! Cek ponselmu sekarang 😉</p>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <i class="fas fa-music"></i>
+    </div>
+
+    <script>
+        // Sanitize input to prevent XSS
+        function sanitizeInput(input) {
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML;
+        }
+
+        // Function to save wishes to local storage
+        function saveWishes(wishes) {
+            localStorage.setItem('birthdayWishes', JSON.stringify(wishes));
+        }
+
+        // Function to load wishes from local storage
+        function loadWishes() {
+            const savedWishes = localStorage.getItem('birthdayWishes');
+            return savedWishes ? JSON.parse(savedWishes) : [];
+        }
+
+        // Function to display wishes
+        function displayWishes(wishes) {
+            const customWishes = document.getElementById('customWishes');
+            customWishes.innerHTML = ''; // Clear the container
+            
+            wishes.forEach(wish => {
+                const wishElement = document.createElement('div');
+                wishElement.className = 'custom-wish';
+                wishElement.innerHTML = `
+                    <p class="wish-text">${wish.message}</p>
+                    <p class="wish-author">- Dari ${wish.sender}</p>
+                    <p class="wish-date">${wish.date}</p>
+                `;
+                customWishes.appendChild(wishElement);
+            });
+        }
+
+        // Login functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('loginBtn');
+            const loginContainer = document.getElementById('loginContainer');
+            const mainContent = document.getElementById('mainContent');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const loginError = document.getElementById('loginError');
+
+            // Default credentials (you can change these)
+            const correctUsername = 'reina';
+            const correctPassword = 'love';
+
+            loginBtn.addEventListener('click', function() {
+                const username = usernameInput.value.trim();
+                const password = passwordInput.value.trim();
+
+                if (username === correctUsername && password === correctPassword) {
+                    loginContainer.style.display = 'none';
+                    mainContent.style.display = 'block';
+                    startConfetti();
+                    startHearts();
+                    startCountdown();
+                    
+                    // Load and display wishes after login
+                    const wishes = loadWishes();
+                    displayWishes(wishes);
+                } else {
+                    loginError.style.display = 'block';
+                    setTimeout(() => {
+                        loginError.style.display = 'none';
+                    }, 3000);
+                }
+            });
+
+            // Submit wish functionality
+            const submitWishBtn = document.getElementById('submitWishBtn');
+            const messageInput = document.getElementById('messageInput');
+            const senderInput = document.getElementById('senderInput');
+            const customWishes = document.getElementById('customWishes');
+
+            submitWishBtn.addEventListener('click', function() {
+                const wishText = messageInput.value.trim();
+                const sender = senderInput.value.trim();
+                
+                if (wishText && sender) {
+                    // Get current wishes from storage
+                    const wishes = loadWishes();
+                    
+                    // Format date for displaying
+                    const now = new Date();
+                    const formattedDate = now.toLocaleString('id-ID', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    
+                    // Create new wish object
+                    const newWish = {
+                        message: sanitizeInput(wishText),
+                        sender: sanitizeInput(sender),
+                        date: formattedDate,
+                        timestamp: now.getTime() // For sorting
+                    };
+                    
+                    // Add to wishes array
+                    wishes.push(newWish);
+                    
+                    // Sort by timestamp, newest first
+                    wishes.sort((a, b) => b.timestamp - a.timestamp);
+                    
+                    // Save back to storage
+                    saveWishes(wishes);
+                    
+                    // Re-display all wishes
+                    displayWishes(wishes);
+                    
+                    // Clear inputs
+                    messageInput.value = '';
+                    senderInput.value = '';
+                    
+                    // Show confirmation
+                    alert('Terima kasih! Harapanmu telah disimpan.');
+                } else {
+                    alert('Silakan isi nama dan pesan harapanmu.');
+                }
+            });
+
+            // Surprise button functionality
+            const surpriseBtn = document.getElementById('surpriseBtn');
+            const surpriseModal = document.getElementById('surpriseModal');
+            const closeModal = document.getElementById('closeModal');
+
+            surpriseBtn.addEventListener('click', function() {
+                surpriseModal.style.display = 'flex';
+                startConfetti();
+            });
+
+            closeModal.addEventListener('click', function() {
+                surpriseModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target === surpriseModal) {
+                    surpriseModal.style.display = 'none';
+                }
+            });
+
+            // Music Player
+            const musicPlayer = document.getElementById('musicPlayer');
+            let audio = new Audio('https://rr2---sn-2b5njvh-jb3z.googlevideo.com/videoplayback?expire=1743413665&ei=QQ3qZ-joNfjnssUP4p2a-As&ip=104.28.225.14&id=o-AJzOFvIjwidO4xzPTqINv_DZpZCjAycsmR60M-TDtdK6&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&pcm2=yes&bui=AccgBcNMs47lfihpytg1VoUeZeJooujW7QtI-hyyE0UObV3WIdvBbWZ3T4YFIdJDgtE9KHikAhNnH2AR&vprv=1&svpuc=1&mime=audio%2Fmp4&ns=1yj8uewYffHq-AnNYE-SA80Q&rqh=1&gir=yes&clen=596701&dur=36.826&lmt=1608418933730535&keepalive=yes&lmw=1&c=TVHTML5&sefc=1&txp=5431432&n=CeETHoz--xLF0A&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cbui%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgIkfQ0efVA1iE2VX54dFgv7HGLIam_tHnD9_ewV0LRiQCICQaws7a_hzjaiEFkQ78ajy6i2pyGHJWC86YeEN-vu5g&title=Happy+Birthday+to+You%2FBirthday+Song+%5BMusic+Box%5D&redirect_counter=1&rm=sn-5hnyyy76&rrc=104&fexp=24350590,24350737,24350827,24350961,24351063,24351147,24351150,24351173,24351283,24351353,24351398,24351415,24351423,24351469,24351527&req_id=6c26574c54eaa3ee&cms_redirect=yes&ipbypass=yes&met=1743392091,&mh=Ov&mip=103.126.238.18&mm=31&mn=sn-2b5njvh-jb3z&ms=au&mt=1743391500&mv=m&mvi=2&pl=24&lsparams=ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=AFVRHeAwRQIgbt59bJOToU-b3dmKH-qM2LIHxvXUsMhcqIMv0ao8HlQCIQDrk5NZc9Eo8t4FQpQsRyDMSq1H5MUZi2V8-y5yfDGhVw%3D%3D');
+            let isPlaying = false;
+
+            musicPlayer.addEventListener('click', function() {
+                if (isPlaying) {
+                    audio.pause();
+                    musicPlayer.innerHTML = '<i class="fas fa-music"></i>';
+                } else {
+                    audio.play();
+                    musicPlayer.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+                isPlaying = !isPlaying;
+            });
+
+            // Countdown timer
+function startCountdown() {
+    // Set the target date to Reina's birthday
+    const targetDate = new Date('March 30, 2025 00:00:00').getTime();
+    
+    // Update the countdown every second
+    const countdownInterval = setInterval(function() {
+        // Get the current date and time
+        const now = new Date().getTime();
+        
+        // Calculate the time remaining
+        const timeRemaining = targetDate - now;
+        
+        // If the target date has passed, stop the countdown
+        if (timeRemaining < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById('daysLeft').textContent = '0';
+            document.getElementById('hoursLeft').textContent = '0';
+            document.getElementById('minutesLeft').textContent = '0';
+            document.getElementById('secondsLeft').textContent = '0';
+            return;
+        }
+        
+        // Calculate days, hours, minutes, seconds
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        
+        // Display the countdown
+        document.getElementById('daysLeft').textContent = days;
+        document.getElementById('hoursLeft').textContent = hours;
+        document.getElementById('minutesLeft').textContent = minutes;
+        document.getElementById('secondsLeft').textContent = seconds;
+    }, 1000);
+}
+
+// Confetti animation
+function startConfetti() {
+    const confettiCount = 100;
+    const container = document.body;
+    
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        
+        // Random position
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.top = -Math.random() * 100 + 'px';
+        
+        // Random size
+        const size = Math.random() * 10 + 5;
+        confetti.style.width = size + 'px';
+        confetti.style.height = size + 'px';
+        
+        // Random color
+        const colors = ['#ff6b6b', '#ffd8d8', '#ff9ef3', '#ffc7f1', '#c3f0ff'];
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Random animation duration
+        const duration = Math.random() * 3 + 2;
+        confetti.style.animation = `floating ${duration}s ease-in-out infinite`;
+        
+        container.appendChild(confetti);
+        
+        // Remove confetti after animation
+        setTimeout(() => {
+            confetti.remove();
+        }, duration * 1000);
+    }
+}
+
+// Floating hearts animation
+function startHearts() {
+    const heartsContainer = document.getElementById('heartsContainer');
+    const heartsCount = 20;
+    
+    for (let i = 0; i < heartsCount; i++) {
+        createHeart(heartsContainer);
+    }
+    
+    // Create a new heart every second
+    setInterval(() => {
+        createHeart(heartsContainer);
+    }, 1000);
+}
+
+function createHeart(container) {
+    const heart = document.createElement('div');
+    heart.className = 'heart-float';
+    heart.innerHTML = '❤️';
+    
+    // Random size
+    const size = Math.random() * 30 + 10;
+    heart.style.fontSize = size + 'px';
+    
+    // Random horizontal position
+    heart.style.left = Math.random() * 100 + 'vw';
+    
+    // Random animation duration
+    const duration = Math.random() * 10 + 10;
+    heart.style.animationDuration = duration + 's';
+    
+    container.appendChild(heart);
+    
+    // Remove heart after animation completes
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+// Enable pressing Enter key to login
+document.getElementById('password').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        document.getElementById('loginBtn').click();
+    }
+});
+
+// Initialize saved wishes on page load
+const wishes = loadWishes();
+displayWishes(wishes);
+});
+</script>
+</body>
+</html>
